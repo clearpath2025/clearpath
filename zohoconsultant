@@ -1,0 +1,1357 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zoho Certified Developer | [Your Name]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --zoho-blue: #2F54EB;
+      --zoho-light: #E6F0FF;
+      --zoho-dark: #1D39C4;
+      --text-dark: #1A1A1A;
+      --text-medium: #4D4D4D;
+      --text-light: #808080;
+      --bg-light: #F8FAFF;
+      --white: #FFFFFF;
+      --border: #E0E6ED;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    section {
+      padding: 100px 0;
+    }
+    
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--zoho-blue);
+      border-radius: 2px;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    p {
+      margin-bottom: 20px;
+      color: var(--text-medium);
+      font-size: 1.1rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    
+    .btn-primary {
+      background-color: var(--zoho-blue);
+      color: var(--white);
+      border: 2px solid var(--zoho-blue);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--zoho-dark);
+      border-color: var(--zoho-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(47, 84, 235, 0.2);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--zoho-blue);
+      border: 2px solid var(--zoho-blue);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--zoho-light);
+      transform: translateY(-3px);
+    }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      background-color: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    
+    .logo-img {
+      width: 100px;
+      height: 60px;
+    }
+    
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--zoho-blue);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+    
+    nav a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      position: relative;
+      font-size: 1rem;
+    }
+    
+    nav a:hover {
+      color: var(--zoho-blue);
+    }
+    
+    nav a:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--zoho-blue);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover:after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+    
+    /* Hero */
+    .hero {
+      padding: 180px 0 120px;
+      background: linear-gradient(135deg, #F6FAFF 0%, #EBF3FF 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 600px;
+      height: 600px;
+      background: url('zoho-pattern.svg') no-repeat;
+      opacity: 0.05;
+      z-index: 0;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 30px;
+      border: 5px solid var(--white);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hero-btns {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    
+    /* Zoho Products */
+    .zoho-products {
+      background-color: var(--white);
+    }
+    
+    .products-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .product-card {
+      background-color: var(--bg-light);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid var(--border);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(47, 84, 235, 0.1);
+    }
+    
+    .product-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+    }
+    
+    .product-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    /* Expertise */
+    /* Expertise Cards: Look & Feel Enhancement */
+    .expertise-image {
+  /* Add max width and center the image */
+  max-width: 120px;   /* Adjust as needed (e.g., 240px–320px looks modern) */
+  margin: 0 auto 22px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expertise-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.expertise-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px 28px;
+  margin-top: 35px;
+}
+
+.expertise-item {
+  background: linear-gradient(135deg, #fafdff 60%, #e6f0ff 100%);
+  border-radius: 14px;
+  box-shadow: 0 6px 32px rgba(47,84,235,0.08), 0 1.5px 4px rgba(47,84,235,0.04);
+  border-left: 5px solid var(--zoho-blue);
+  padding: 28px 24px 22px 24px;
+  transition: box-shadow 0.35s cubic-bezier(.24,.98,.56,.99), transform 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise-item::after {
+  content: '';
+  position: absolute;
+  top: -24px; right: -24px;
+  width: 50px; height: 50px;
+  background: radial-gradient(circle at 50% 50%, #2F54EB13 0%, transparent 80%);
+  z-index: 0;
+}
+
+.expertise-item:hover {
+  box-shadow: 0 12px 36px rgba(47,84,235,0.15), 0 3px 12px rgba(47,84,235,0.09);
+  transform: translateY(-8px) scale(1.03);
+  background: linear-gradient(120deg, #e9f3ff 60%, #f0f7fe 100%);
+}
+
+/* Headings inside expertise cards */
+.expertise-item h4 {
+  margin-bottom: 14px;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--zoho-blue);
+}
+
+.expertise-item p {
+  font-size: 1.02rem;
+  color: var(--text-medium);
+}
+
+@media (max-width: 768px) {
+  .expertise-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .expertise-item {
+    padding: 22px 15px;
+    border-left-width: 4px;
+  }
+}
+
+    
+    /* Solutions */
+    .solutions {
+      background-color: var(--white);
+    }
+    
+    .solutions-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+    
+    .solutions-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+      padding: 10px 20px;
+      background-color: transparent;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .tab-btn.active {
+      background-color: var(--zoho-blue);
+      color: var(--white);
+      border-color: var(--zoho-blue);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    /* Solution Card Enhancements */
+.solution-card {
+  background-color: var(--white); /* lighter and cleaner background */
+  border-radius: 16px;
+  padding: 40px 35px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(47, 84, 235, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  line-height: 1.6;
+  color: var(--text-medium);
+}
+
+.solution-card:hover {
+  box-shadow: 0 15px 45px rgba(47, 84, 235, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Headings inside solution card */
+.solution-card h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--zoho-blue);
+}
+
+.solution-card h4 {
+  font-size: 1.3rem;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: var(--zoho-dark);
+}
+
+/* Paragraph text */
+.solution-card p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--text-medium);
+}
+
+/* Lists inside solution card */
+.solution-card ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  color: var(--text-medium);
+  font-size: 1.05rem;
+  list-style-type: disc;
+}
+
+.solution-card ul ul {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  list-style-type: circle;
+}
+
+.solution-card ul li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Blockquote style */
+.solution-card blockquote {
+  font-style: italic;
+  color: var(--zoho-dark);
+  background-color: var(--zoho-light);
+  border-left: 6px solid var(--zoho-blue);
+  padding: 15px 20px;
+  margin: 30px 0;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 768px) {
+  .solution-card {
+    padding: 30px 20px;
+  }
+  
+  .solution-card h3 {
+    font-size: 1.8rem;
+  }
+
+  .solution-card h4 {
+    font-size: 1.15rem;
+  }
+  
+  .solution-card p,
+  .solution-card ul,
+  .solution-card blockquote {
+    font-size: 1rem;
+  }
+}
+
+    
+    /* Process */
+    .process {
+      background-color: var(--bg-light);
+    }
+    
+    .process-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 60px;
+      position: relative;
+    }
+    
+    .process-steps:before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--border);
+      z-index: 1;
+    }
+    
+    .process-step {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      width: 20%;
+    }
+    
+    .step-number {
+      width: 80px;
+      height: 80px;
+      background-color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--zoho-blue);
+      margin: 0 auto 20px;
+      box-shadow: 0 10px 30px rgba(47, 84, 235, 0.1);
+      border: 2px solid var(--zoho-light);
+    }
+    
+    /* Contact */
+    .contact {
+      background-color: var(--white);
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    
+    .info-icon {
+      width: 50px;
+      height: 50px;
+      background-color: var(--zoho-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--zoho-blue);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    
+    .contact-form {
+      background-color: var(--bg-light);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 14px 20px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.3s ease;
+      font-size: 1rem;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--zoho-blue);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--text-dark);
+      color: var(--white);
+      padding: 80px 0 30px;
+      align-items: center;
+    }
+    
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 60px;
+      align-items: center;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    
+    .footer-logo-img {
+      width: 40px;
+      height: 40px;
+      align-items: center;
+    }
+    
+    .footer-logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      align-content: center;
+      align-items: center;
+    }
+    
+    .footer-about p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 20px;
+      
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      color: var(--white);
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: var(--zoho-light);
+    }
+    
+    .footer-links h3 {
+      color: var(--white);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .expertise-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .expertise-image {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      
+      .process-steps {
+        flex-wrap: wrap;
+        gap: 40px;
+      }
+      
+      .process-step {
+        width: calc(50% - 20px);
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      section {
+        padding: 80px 0;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      nav ul {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero-btns {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+      
+      .expertise-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      section {
+        padding: 60px 0;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .process-step {
+        width: 100%;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-container">
+    <a href="#" class="logo">
+      <!-- <img src="zoho-logo-web.png" alt="Zoho" class="logo-img"> -->
+      <span class="logo-text">Clean-path</span>
+    </a>
+
+    <nav>
+      <button class="mobile-menu-btn">☰</button>
+      <ul>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-content">
+    <!-- <img src="profile.jpg" alt="[Your Name]" class="hero-image"> -->
+    <h1>Zoho Developer & Consultant</h1>
+    <p>Helping businesses transform their operations with custom Zoho solutions that automate workflows, streamline processes, and drive growth.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-primary">Get a Free Consultation</a>
+      <a href="#solutions" class="btn btn-outline">Explore Solutions</a>
+    </div>
+  </div>
+</section>
+
+<section id="products" class="zoho-products">
+  <div class="container">
+    <div class="products-header">
+      <h2>Zoho Products I Specialize In</h2>
+      <p>Deep expertise across the Zoho ecosystem to deliver comprehensive business solutions</p>
+    </div>
+    
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-icon">
+          <img src="crm.svg" alt="Zoho CRM" />
+        </div>
+        <h3>Zoho CRM</h3>
+        <p>Custom CRM implementations, sales automation, pipeline management, and advanced analytics.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon">
+          <img src="creator.svg" alt="Zoho Creator" />
+        </div>
+        <h3>Zoho Creator</h3>
+        <p>Custom low-code applications for inventory, HR, field service, and operational workflows.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon">
+          <img src="books.svg" alt="Zoho Books" />
+        </div>
+        <h3>Zoho Books</h3>
+        <p>Accounting automation, invoicing, expense tracking, and financial reporting solutions.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon">
+          <img src="desk.svg" alt="Zoho Desk" />
+        </div>
+        <h3>Zoho Desk</h3>
+        <p>Customer support ticketing systems, knowledge bases, and service automation.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon">
+          <img src="analytics.svg" alt="Zoho Analytics" />
+        </div>
+        <h3>Zoho Analytics</h3>
+        <p>Business intelligence dashboards, custom reports, and data visualization.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon">
+          <img src="flow.svg" alt="Zoho Flow" />
+        </div>
+        <h3>Zoho Flow</h3>
+        <p>Workflow automation between Zoho apps and third-party services.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">
+          <img src="projects.svg" alt="Zoho Projects" />
+        </div>
+        <h3>Zoho Projects</h3>
+        <p>Intuitive project management for faster delivery, more reliable outcomes, and
+    happier teams</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise" class="expertise">
+  <div class="container expertise-container">
+    <div class="expertise-image">
+      <img src="zoho-one.svg" alt="Zoho Dashboard" />
+    </div>
+
+    <div>
+      <h2>My Zoho Expertise</h2>
+      <p>With certifications across the Zoho platform and years of hands-on experience, I deliver solutions that go beyond basic implementation.</p>
+
+      <div class="expertise-list">
+        <div class="expertise-item">
+          <h4>Custom Module Development</h4>
+          <p>Tailored CRM modules that match your unique business processes.</p>
+        </div>
+
+        <div class="expertise-item">
+          <h4>API Integrations</h4>
+          <p>Seamless connections between Zoho and other business tools.</p>
+        </div>
+
+        <div class="expertise-item">
+          <h4>Workflow Automation</h4>
+          <p>Complex blueprints that eliminate manual work and reduce errors.</p>
+        </div>
+
+        <div class="expertise-item">
+          <h4>Data Migration</h4>
+          <p>Smooth transition from legacy systems to Zoho with data integrity.</p>
+        </div>
+
+        <div class="expertise-item">
+          <h4>Custom Widgets</h4>
+          <p>Interactive UI components that extend Zoho functionality.</p>
+        </div>
+
+        <div class="expertise-item">
+          <h4>Training & Support</h4>
+          <p>Comprehensive user training and ongoing technical support.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="solutions" class="solutions">
+  <div class="container">
+    <div class="solutions-header">
+      <h2>Industry-Specific Solutions</h2>
+      <p>Tailored Zoho implementations designed for your business vertical</p>
+    </div>
+
+    <div class="solutions-tabs">
+      <button class="tab-btn" data-tab="hospitality-management">Hospitality</button>
+      <button class="tab-btn" data-tab="manufacturing">Manufacturing</button>
+      <button class="tab-btn active" data-tab="real-estate">Real Estate</button>
+      <button class="tab-btn" data-tab="education-management">Education</button>
+
+      <button class="tab-btn" data-tab="professional-services">Professional Services</button>
+    </div>
+
+    <div id="real-estate" class="tab-content active">
+      <div class="solution-card">
+        <h3>Real Estate Platform</h3>
+        <p>Zoho CRM</p>
+        <ul>
+          <li>Customized Property and Agent data models to organize property listings and agent information.</li>
+          <li>Automated lead management and quick property-match features enabled agents to find and send matched properties to clients at the click of a button.</li>
+          <li>Integration with Zoho Campaign and appointment tracking streamlined both marketing and site visit scheduling.</li>
+          <li>Migration from Excel spreadsheets to Zoho CRM drastically improved data accuracy and accessibility, while customized automation reduced manual entry and errors.</li>
+          <li>Outcome: Improved efficiency, agent collaboration, and customer response, leading to higher deal closure rates and better client satisfaction.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="education-management" class="tab-content active">
+      <div class="solution-card">
+        <h3>Education Management System with Zoho Creator</h3>
+        <h4>Education Management Solution Overview</h4>
+        <p><strong>Platform:</strong> Zoho Creator</p>
+
+        <h4>Key Features and Integrations</h4>
+        <ul>
+          <li>
+            <strong>Centralized Student Information Management</strong>
+            <ul>
+              <li>Unified records for admissions, attendance, grades, and disciplinary data.</li>
+              <li>Parent and student self-service portals for registrations using QR codes and online forms.</li>
+              <li>Role-based dashboards offer real-time visibility for students, teachers, and admins.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Timetable and Academic Scheduling</strong>
+            <ul>
+              <li>Automated schedule generation ensures no class overlaps.</li>
+              <li>Notifications are sent automatically for timetable changes or upcoming events.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Comprehensive Fee and Finance Management</strong>
+            <ul>
+              <li>Handles fee collection, invoice creation, and automated payment reminders.</li>
+              <li>Detailed financial reporting for budgeting and audit purposes.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Attendance and Academic Tracking</strong>
+            <ul>
+              <li>Quick and accurate digital attendance marking with customizable reports.</li>
+              <li>Track grades, progress, and syllabus completion for every student.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Staff and Payroll Management</strong>
+            <ul>
+              <li>Maintain detailed records on teachers and staff, including payroll, training, and appraisals.</li>
+              <li>Automate HR operations for recruitment, promotions, and performance management.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Communication & Collaboration Tools</strong>
+            <ul>
+              <li>Integrated messaging, announcements, and discussion forums connect teachers, students, and parents.</li>
+              <li>Integrate with apps like Zoho Cliq, Zoho Meeting, and Google Workspace for extended collaboration.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Customizable Modules & Scalability</strong>
+            <ul>
+              <li>Easily add modules for admissions, library, hostel, transport, events, and more.</li>
+              <li>Cloud-based, mobile-optimized access for management from anywhere, anytime.</li>
+              <li>Integrate seamlessly with external payment gateways, accounting, and learning platforms via APIs.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h4>Outcomes</h4>
+        <ul>
+          <li>Accelerated and precise administrative processes, greatly reducing manual data entry and errors.</li>
+          <li>Improved communication among all stakeholders—students, parents, teachers, and administrators.</li>
+          <li>Higher operational efficiency and reduced paper-based workflows across single or multi-branch institutions.</li>
+          <li>Enhanced decision-making through analytics and real-time reports on academic and financial performance.</li>
+          <li>Custom fit for diverse educational needs, from small schools to large universities and NGOs.</li>
+        </ul>
+
+        <blockquote>
+          "Institutions using Zoho Creator for education management experience greater transparency, faster operations, and a unified digital environment for all academic and administrative processes."
+        </blockquote>
+
+        <p><strong>In summary:</strong> Zoho Creator enables you to build a highly customizable, integrated, and secure education management system that automates admissions, academics, finance, HR, and more, resulting in operational excellence and a vastly improved stakeholder experience.</p>
+      </div>
+    </div>
+
+    <div id="hospitality-management" class="tab-content">
+      <div class="solution-card">
+        <h3>Hospitality Management: OTA Platform Integrations, Bookings, Room Inventory & Availability with Zoho Creator</h3>
+        <h4>Hospitality Management Solution Overview</h4>
+        <p><strong>Platform:</strong> Zoho Creator</p>
+
+        <h4>Key Features and Integrations</h4>
+        <ul>
+          <li>
+            <strong>OTA Platform Integration</strong>
+            <ul>
+              <li>Seamless integration with prominent OTAs (Booking.com, Agoda, Expedia, Airbnb) via APIs or channel managers.</li>
+              <li>Real-time synchronization of room inventory, rates, and availability across OTAs and direct booking engines to avoid double bookings and pricing inconsistencies.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Centralized Booking and Room Inventory Management</strong>
+            <ul>
+              <li>Unified dashboard for all guest check-ins, check-outs, and reservations.</li>
+              <li>Customizable modules to track rooms by type, floor, rate, bed type, and amenities.</li>
+              <li>Real-time room status (vacant, occupied, maintenance) with reporting features.</li>
+              <li>Control over room allocation and allotments per OTA or sales channel.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Room Availability Check</strong>
+            <ul>
+              <li>Instant room search with filters by date and time.</li>
+              <li>Live inventory updates on bookings and cancellations across channels.</li>
+              <li>Custom interfaces for staff and guests with role-based access control.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Automated Bookings and Scheduling</strong>
+            <ul>
+              <li>Automated check-in, housekeeping, special bookings, and billing workflows.</li>
+              <li>Online booking requests reflected immediately to avoid manual errors.</li>
+              <li>Appointment and resource scheduling for services like spa, gym, and site visits.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Customization & Extensibility</strong>
+            <ul>
+              <li>Tailored modules for all hospitality sizes including custom dashboards.</li>
+              <li>Integration with accounting, payment gateways, and existing PMS systems.</li>
+              <li>Secure cloud-based access enabling scalability and remote management.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h4>Outcomes</h4>
+        <ul>
+          <li>Improved efficiency for managers and front-desk teams through automation and centralized data.</li>
+          <li>Greater booking accuracy, reducing overbooking and manual errors.</li>
+          <li>Enhanced guest experience with faster responses and streamlined services.</li>
+          <li>Better financial performance from optimized channel management and occupancy.</li>
+        </ul>
+
+        <blockquote>
+          "With Zoho Creator for hospitality, hotels can centralize guest management, bookings, room inventory, and OTA connections—enabling real-time inventory control and seamless operations for both guests and staff."
+        </blockquote>
+
+        <p><strong>In summary:</strong> The hospitality management solution using Zoho Creator enables end-to-end hotel and OTA integration, centralized booking and room management, real-time room availability checks, and advanced automation, resulting in greater operational speed, guest satisfaction, and revenue growth.</p>
+      </div>
+    </div>
+
+    <div id="manufacturing" class="tab-content">
+      <div class="solution-card">
+        <h3>Production & Inventory Management Solution with Zoho Inventory, Zoho Creator, and Zoho Books</h3>
+        <h4>Overview</h4>
+        <p>
+          <strong>Platform:</strong> Zoho Inventory, Zoho Creator, Zoho Books (integrated suite for manufacturing industry)
+        </p>
+
+        <h4>Key Features and Integrations</h4>
+        <ul>
+          <li>
+            <strong>BOM (Bill of Materials) & MRP (Material Requirements Planning)</strong>
+            <ul>
+              <li>Comprehensive BOM module: Configure and maintain component lists for finished products. Visual BOM hierarchy provides complete material traceability and cost tracking.</li>
+              <li>MRP engine calculates material requirements based on sales orders, production plans, and historical demand, ensuring right-time procurement and minimum stock-outs.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Integrated Production Planning & Inventory Consumption</strong>
+            <ul>
+              <li>Create and manage <strong>work orders</strong> directly from sales or production schedules.</li>
+              <li>Automatic deduction of component inventory upon job closure, with real-time insight into raw material, WIP (work in progress), and finished goods inventory across multiple locations.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Inventory Synchronization & Adjustments</strong>
+            <ul>
+              <li>Sync inventory movements, PO generation, and financial transactions between Zoho Inventory and Zoho Books to ensure accurate, up-to-date accounting and inventory valuation without duplicate entry.</li>
+              <li>Support for inventory adjustments, transfers, and cycle counts with audit trails and reporting.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Quality Control</strong>
+            <ul>
+              <li>Quality checkpoints in the manufacturing process: Enforce inspection before completion, record defects or rework, attach photos/E-docs, and manage approval workflows for releases.</li>
+              <li>Customizable dashboards for tracking key quality metrics and compliance documentation.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Extensive Customization and Automation</strong>
+            <ul>
+              <li>Low-code automations for custom notifications, approval chains, and escalations (Zoho Creator).</li>
+              <li>Barcode/QR code scanning for swift material movements and order tracking.</li>
+              <li>Integrated with third-party logistics, e-commerce, and payment systems for unified operations.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h4>Outcomes</h4>
+        <ul>
+          <li>End-to-end visibility of production, inventory, and financials across all business units.</li>
+          <li>Streamlined work order processing, material requirement forecasting, and procurement, minimizing downtime and wastage.</li>
+          <li>Fewer stock-outs and overstocking, thanks to real-time consumption and accurate MRP calculations.</li>
+          <li>Regulatory compliance and improved product quality via enforceable quality checkpoints.</li>
+          <li>Accelerated digital transformation for manufacturing—flexible, scalable, and fully integrated.</li>
+        </ul>
+
+        <blockquote>
+          "Using Zoho Inventory and Zoho Creator together empowers manufacturers to control every aspect of production and inventory—BOM setups, MRP, warehouse, PO, work orders, and quality control—driving accuracy, efficiency, and growth."
+        </blockquote>
+
+        <p>
+          <strong>In summary:</strong> This integrated manufacturing solution covers every stage from component sourcing to finished goods delivery. It automates procurement, empowers shop floor teams with accurate inventory, ensures quality, and unifies all data flows into finance and compliance modules for operational excellence and business growth.
+        </p>
+      </div>
+    </div>
+
+    <div id="professional-services" class="tab-content">
+      <div class="solution-card">
+        <h3>Professional Services Automation</h3>
+        <p>Integrated solution combining Zoho CRM, Zoho Creator, Projects, and Books for Customer engagement,Custom app Development, project management, and finance management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="process">
+  <div class="container">
+    <h2>My Implementation Process</h2>
+    <p>A structured approach to ensure successful Zoho deployment and adoption</p>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <h3>Discovery</h3>
+        <p>Requirements gathering and process mapping</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <h3>Design</h3>
+        <p>Solution architecture and prototype</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <h3>Development</h3>
+        <p>Custom configuration and integration</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <h3>Testing</h3>
+        <p>User acceptance and performance testing</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">5</div>
+        <h3>Deployment</h3>
+        <p>Go-live with training and support</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container contact-container">
+    <div class="contact-info">
+      <h2>Ready to Transform Your Business with Zoho?</h2>
+      <p>Get in touch to discuss your requirements and how I can help you leverage the Zoho platform.</p>
+
+      <div class="info-item">
+        <div class="info-icon">✉️</div>
+        <div>
+          <h3>Email</h3>
+          <p>sumitkumarashtekar@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📱</div>
+        <div>
+          <h3>Phone</h3>
+          <p>+91 7387533922</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">🕒</div>
+        <div>
+          <h3>Availability</h3>
+          <p>Monday - Friday: 9am - 6pm IST</p>
+        </div>
+      </div>
+    </div>
+    <!-- Removed contact form per your request -->
+  </div>
+</section>
+
+<!-- Footer removed per your request -->
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const navMenu = document.querySelector('nav ul');
+
+  mobileMenuBtn.addEventListener('click', () => {
+    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Tab functionality
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons and contents
+      tabBtns.forEach(btn => btn.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+
+      // Add active class to clicked button
+      btn.classList.add('active');
+
+      // Show corresponding content
+      const tabId = btn.getAttribute('data-tab');
+      document.getElementById(tabId).classList.add('active');
+    });
+  });
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+
+        // Close mobile menu if open
+        if (navMenu.style.display === 'flex') {
+          navMenu.style.display = 'none';
+        }
+      }
+    });
+  });
+
+  // No form submission code since contact form is removed
+
+  // Animate elements when they come into view
+  const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.product-card, .expertise-item, .solution-card, .process-step');
+
+    elements.forEach(element => {
+      const elementPosition = element.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.3;
+
+      if (elementPosition < screenPosition) {
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
+      }
+    });
+  };
+
+  // Set initial state for animation
+  document.querySelectorAll('.product-card, .expertise-item, .solution-card, .process-step').forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(20px)';
+    element.style.transition = 'all 0.6s ease';
+  });
+
+  window.addEventListener('scroll', animateOnScroll);
+  window.addEventListener('load', animateOnScroll);
+</script>
+
+</body>
+</html>
